@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $encoding = 'utf8';
-$db = 'accounts';
+$db = 'projet_database';
 $user = 'root';
-$pass = '';
+$password = '';
 $pdoErrorMode = \PDO::ERRMODE_EXCEPTION;
