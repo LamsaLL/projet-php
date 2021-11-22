@@ -1,5 +1,7 @@
 <?php
 
+namespace Model\Entities;
+
 class OrganizationActivity extends Entity
 {
     private int $id;
