@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <?= $error ?>
+    <?= $error; ?>
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 <?php
-require_once('./Controller/OrganizationController.php');
-// require_once('./Controller/AuthorizationController.php');
+
+require_once('Controller/OrganizationController.php');
+
 use Controller\OrganizationController;
-// use Controller\AuthorizationController;
 
 try {
     if (isset($_GET['action'])) {
-        if (stripos($_GET['action'], 'account')) {
+        if (stripos($_GET['action'], 'organization')) {
             $controler = new OrganizationController();
             switch ($_GET['action']) {
                 case 'viewOrganization':
