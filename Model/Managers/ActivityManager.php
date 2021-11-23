@@ -30,7 +30,7 @@ class ActivityManager extends PDOManager
 
     public function findAll(int $pdoFecthMode): array
     {
-        $stmt=$this->find();
+        $stmt = $this->find();
         $activities = $stmt->fetchAll($pdoFecthMode);
 
         $activityEntities=[];
@@ -43,9 +43,8 @@ class ActivityManager extends PDOManager
     public function insert(Entity $e): PDOStatement
     {
         $req = "insert into secteur(id, libelle) values (:id, :libelle)";
-        $params = array('id' => $e->getId(), 'libelle' => $e->getLibelle());
+        $params = array('id' => $e->getId(), 'libelle' => $e->getLabel());
         $res = $this->executePrepare($req,$params);
         return $res;
     }
-
 }
