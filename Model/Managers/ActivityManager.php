@@ -8,7 +8,7 @@ use PDOStatement;
 
 class ActivityManager extends PDOManager
 {
-    public function findById(int $id): ?Activity
+    public function findById(int $id): ?Entity
     {
         //Préparation du PDOStatement
         $stmt = $this->executePrepare("select * from secteur where id=:id", [ 'id' => $id]);
