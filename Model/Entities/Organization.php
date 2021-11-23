@@ -117,7 +117,7 @@ class Organization extends Entity
     /**
      * @return bool
      */
-    public function isAssociation(): bool
+    public function getIsAssociation(): bool
     {
         return $this->isAssociation;
     }
