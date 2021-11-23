@@ -11,7 +11,7 @@ use \PDO;
 abstract class AController
 {
     //protected PDOManager $manager;
-    protected $manager;
+    protected PDOManager $manager;
 
     /**
      * @return PDOManager

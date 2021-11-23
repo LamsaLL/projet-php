@@ -3,7 +3,7 @@
 namespace Controller;
 
 require_once('AController.php');
-require_once(__DIR__ . '/../model/managers/AccountManager.php');
+require_once(__DIR__ . '/../Model/Managers/OrganizationManager.php');
 
 use Model\Entities\Organization;
 use Model\Managers\OrganizationManager;
@@ -18,9 +18,9 @@ class OrganizationController extends AController
     public function viewOrganizations() : void
     {
         $title = 'Liste des structures';
-        $organization = $this->findAll();
+        $organizations = $this->findAll();
 
-        require(__DIR__ . '/../view/viewOrganizations.php');
+        require(__DIR__ . '/../View/viewOrganizations.php');
     }
 
     public function viewOrganization($id) : void
@@ -29,11 +29,11 @@ class OrganizationController extends AController
         $organization = $this->findById($id);
 
         if ($organization) {
-            require(__DIR__ . '/../view/viewOrganization.php');
+            require(__DIR__ . '/../View/viewOrganization.php');
         }
         else {
             $error = 'id de structure non valide';
-            require(__DIR__ . '/../view/error.php');
+            require(__DIR__ . '/../View/error.php');
         }
     }
 
