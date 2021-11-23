@@ -4,7 +4,6 @@ namespace Model\Entities;
 
 class OrganizationActivity extends Entity
 {
-    private int $id;
     private int $organizationId;
     private int $activityId;
 
@@ -15,7 +14,7 @@ class OrganizationActivity extends Entity
      */
     public function __construct(int $id, int $organizationId, int $activityId)
     {
-        $this->id = $id;
+        parent::__construct($id);
         $this->organizationId = $organizationId;
         $this->activityId = $activityId;
     }

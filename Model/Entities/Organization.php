@@ -4,7 +4,6 @@ namespace Model\Entities;
 
 class Organization extends Entity
 {
-    private int $id;
     private string $name;
     private string $street;
     private string $postalCode;
@@ -25,7 +24,7 @@ class Organization extends Entity
      */
     public function __construct(int $id, string $name, string $street, string $postalCode, string $city, bool $isAssociation, int $donorsNumber, int $investorsNumber)
     {
-        $this->id = $id;
+        parent::__construct($id);
         $this->name = $name;
         $this->street = $street;
         $this->postalCode = $postalCode;

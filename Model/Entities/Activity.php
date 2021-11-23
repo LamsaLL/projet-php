@@ -4,8 +4,6 @@ namespace Model\Entities;
 
 class Activity extends Entity
 {
-    private int $id;
-
     private string $label;
 
     /**
@@ -14,7 +12,7 @@ class Activity extends Entity
      */
     public function __construct(int $id, string $label)
     {
-        $this->id = $id;
+        parent::__construct($id);
         $this->label = $label;
     }
 
