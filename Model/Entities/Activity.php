@@ -7,10 +7,10 @@ class Activity extends Entity
     private string $label;
 
     /**
-     * @param int $id
+     * @param int|null $id
      * @param string $label
      */
-    public function __construct(int $id, string $label)
+    public function __construct(?int $id, string $label)
     {
         parent::__construct($id);
         $this->label = $label;

@@ -8,11 +8,11 @@ class OrganizationActivity extends Entity
     private int $activityId;
 
     /**
-     * @param int $id
+     * @param int|null $id
      * @param int $organizationId
      * @param int $activityId
      */
-    public function __construct(int $id, int $organizationId, int $activityId)
+    public function __construct(?int $id, int $organizationId, int $activityId)
     {
         parent::__construct($id);
         $this->organizationId = $organizationId;
