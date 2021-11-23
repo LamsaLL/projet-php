@@ -13,7 +13,7 @@ class Organization extends Entity
     private int $investorsNumber;
 
     /**
-     * @param int $id
+     * @param int|null $id
      * @param string $name
      * @param string $street
      * @param string $postalCode
@@ -22,7 +22,7 @@ class Organization extends Entity
      * @param int $donorsNumber
      * @param int $investorsNumber
      */
-    public function __construct(int $id, string $name, string $street, string $postalCode, string $city, bool $isAssociation, int $donorsNumber, int $investorsNumber)
+    public function __construct(?int $id, string $name, string $street, string $postalCode, string $city, bool $isAssociation, int $donorsNumber, int $investorsNumber)
     {
         parent::__construct($id);
         $this->name = $name;
@@ -37,7 +37,7 @@ class Organization extends Entity
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
