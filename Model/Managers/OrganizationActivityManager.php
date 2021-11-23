@@ -30,13 +30,18 @@ class OrganizationActivityManager extends PDOManager
     public function findAll(int $pdoFecthMode): array
     {
         $stmt = $this->find();
-        $organizationsActivities = $stmt->fetchAll($pdoFecthMode);
+        $organizationsActivity = $stmt->fetchAll($pdoFecthMode);
 
-        $organization_activity_entities=[];
-        foreach($organizationsActivities as $organizationActivity) {
-            $organization_activity_entities[] = new OrganizationActivity($organizationActivity['ID'],$organizationActivity['ID_STRUCTURE'],$organizationActivity['ID_SECTEUR']);
+        //On crée un tableau qui stockera les objets OrganizationActivity
+        $organizationsActivityEntities=[];
+
+        //On parcours les données récupérées de la bdd et on crée des objets OrganizationActivity
+        foreach($organizationsActivity as $organizationActivity) {
+            $organizationsActivityEntities[] = new OrganizationActivity($organizationActivity['ID'],$organizationActivity['ID_STRUCTURE'],$organizationActivity['ID_SECTEUR']);
         }
-        return $organizationsActivities;
+
+        //On renvoie le tableau créé précedemment maintenant populated
+        return $organizationsActivityEntities;
     }
 
     public function insert(Entity $e): PDOStatement
