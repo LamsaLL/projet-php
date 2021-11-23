@@ -9,7 +9,7 @@ class Organization extends Entity
     private string $street;
     private string $postalCode;
     private string $city;
-    private boolean $isAssociation;
+    private bool $isAssociation;
     private int $donorsNumber;
     private int $investorsNumber;
 
