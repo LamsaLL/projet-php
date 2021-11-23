@@ -75,6 +75,4 @@ class OrganizationActivity extends Entity
         // TODO: Implement __toString() method.
         return "";
     }
-
-
 }

@@ -2,29 +2,50 @@
 
 namespace Model\Managers;
 
+use Model\Entities\Activity;
 use Model\Entities\Entity;
 use PDOStatement;
 
 class ActivityManager extends PDOManager
 {
-    public function findById(int $id): ?Entity
+    public function findById(int $id): ?Activity
     {
-        // TODO: Implement findById() method.
+        //Préparation du PDOStatement
+        $stmt = $this->executePrepare("select * from secteur where id=:id", [ 'id' => $id]);
+        $activity = $stmt->fetch();
+
+        //Si on ne trouve pas l'activité on renvoie NULL
+        if (!$activity)
+            return null;
+
+        return new Activity($activity['ID'],$activity['LIBELLE']);
     }
 
     public function find(): PDOStatement
     {
-        // TODO: Implement find() method.
+        //Préparation du PDOStatement
+        $stmt=$this->executePrepare("select * from secteur",[]);
+        return $stmt;
     }
 
     public function findAll(int $pdoFecthMode): array
     {
-        // TODO: Implement findAll() method.
+        $stmt=$this->find();
+        $activities = $stmt->fetchAll($pdoFecthMode);
+
+        $activityEntities=[];
+        foreach($activities as $activity) {
+            $activityEntities[] = new Activity($activity['ID'],$activity['LIBELLE']);
+        }
+        return $activityEntities;
     }
 
     public function insert(Entity $e): PDOStatement
     {
-        // TODO: Implement insert() method.
+        $req = "insert into secteur(id, libelle) values (:id, :libelle)";
+        $params = array('id' => $e->getId(), 'libelle' => $e->getLibelle());
+        $res = $this->executePrepare($req,$params);
+        return $res;
     }
 
 }

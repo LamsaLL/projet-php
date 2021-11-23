@@ -13,6 +13,4 @@ abstract class Entity
     {
         $this->id = $id;
     }
-
-
 }
