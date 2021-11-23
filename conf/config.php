@@ -2,6 +2,6 @@
 $host = 'localhost';
 $encoding = 'utf8';
 $db = 'projet_database';
-$user = 'root';
-$password = '';
+$user = 'leo';
+$password = 'root';
 $pdoErrorMode = \PDO::ERRMODE_EXCEPTION;
