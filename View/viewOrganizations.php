@@ -37,7 +37,8 @@
                 <td><?php echo $organization->getDonorsNumber(); ?></td>
                 <td><?php echo $organization->getInvestorsNumber(); ?></td>
                 <td>
-                    <button>Détail</button>
+                    <a href="index.php?action=viewOrganization&id=<?= $organization->getId()?>">Détail
+                    </a>
                     <button>Modifier</button>
                     <button>Supprimer</button>
                 </td>
