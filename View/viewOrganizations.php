@@ -62,6 +62,7 @@
         <input type="submit" name="add" value="Ajouter">
     </form>
     <br /><br /><a href="index.php?action=viewAuths">Liste des autorisations</a>
-</body> -->
+    -->
+</body>
 
 </html>

@@ -1,8 +1,10 @@
 <?php
 
 require_once('./Controller/OrganizationController.php');
+require_once('./Controller/ActivityController.php');
 
 use Controller\OrganizationController;
+use Controller\ActivityController;
 
 try {
     if (isset($_GET['action'])) {
@@ -30,38 +32,38 @@ try {
                     $error = 'Erreur : action non reconnue<br/>';
                     break;
             }
-        // } elseif (stripos($_GET['action'], 'auth')) {
-        //     $controler = new AuthorizationController();
-        //     switch ($_GET['action']) {
-        //         case 'viewAuth':
-        //             if (isset($_GET['id']) && $_GET['id'] > 0) {
-        //                 $organization = $controler->viewAuth($_GET['id']);
-        //             } else {
-        //                 $error = 'Erreur : mauvais identifiant<br/>';
-        //             }
-        //             break;
-        //         case 'viewAuths':
-        //             $organizations = $controler->viewAuths();
-        //             break;
-        //         case 'addAuth':
-        //             if (isset($_POST['name'])) {
-        //                 $controler->addAuth();
-        //             } else {
-        //                 $error = 'Erreur de paramètres<br/>';
-        //             }
-        //             break;
-        //         default :
-        //             $error = 'Erreur : action non reconnue<br/>';
-        //             break;
-        //     }
+        } elseif (stripos($_GET['action'], 'activ')) {
+            $controler = new ActivityController();
+            switch ($_GET['action']) {
+                case 'viewActivity':
+                    if (isset($_GET['id']) && $_GET['id'] > 0) {
+                        $organization = $controler->viewActivity($_GET['id']);
+                    } else {
+                        $error = 'Erreur : mauvais identifiant<br/>';
+                    }
+                    break;
+                case 'viewActivities':
+                    $organizations = $controler->viewActivities();
+                    break;
+//                case 'addActivity':
+//                    if (isset($_POST['name'])) {
+//                        $controler->addAuth();
+//                    } else {
+//                        $error = 'Erreur de paramètres<br/>';
+//                    }
+//                    break;
+                default :
+                    $error = 'Erreur : action non reconnue<br/>';
+                    break;
+            }
         } else {
             $error = 'Erreur : action non reconnue<br/>';
         }
     } else {
         ?>
-<a href="index.php?action=viewOrganizations">Liste des structures</a>
-<!-- <a href="index.php?action=viewAuths">Liste des autorisations</a> -->
-<?php
+        <a href="index.php?action=viewOrganizations">Liste de structures</a>
+        <a href="index.php?action=viewActivities">Liste d'activités</a>
+        <?php
     }
 }
 catch (Exception $ex) {

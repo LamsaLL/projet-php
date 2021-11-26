@@ -2,6 +2,10 @@
 
 namespace Model\Managers;
 
+require_once(__DIR__ . '/../Entities/Activity.php');
+require_once(__DIR__.'/../Entities/Entity.php');
+require_once('PDOManager.php');
+
 use Model\Entities\Activity;
 use Model\Entities\Entity;
 use PDOStatement;
