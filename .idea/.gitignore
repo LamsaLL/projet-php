@@ -8,3 +8,4 @@
 /httpRequests/
 # All .pdf files
 *.pdf
+/conf/config.js
