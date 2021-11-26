@@ -71,6 +71,6 @@ catch (Exception $ex) {
             $ex->getTraceAsString());
 }
 if (isset($error)) {
-    require(__DIR__.'/view/error.php');
+    require(__DIR__.'/View/error.php');
 }
 ?>
