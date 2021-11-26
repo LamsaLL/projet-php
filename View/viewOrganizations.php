@@ -4,29 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
+    <link rel="stylesheet" href="/php-lp/projet-php/projet-php/style/style.css" />
 </head>
 
 <body>
     <?php
-var_dump($organizations);
-foreach ($organizations as $organization) { ?>
-    <table style="width:100%">
+// var_dump($organizations);
+    ?>
+    <table>
         <thead>
-            <th>id</th>
-            <th>Nom</th>
+            <tr>
+                <th>id</th>
+                <th>Nom</th>
+            </tr>
         </thead>
         <tbody>
+            <?php
+                foreach ($organizations as $organization) { 
+            ?>
             <tr>
                 <td><?php echo $organization->getId(); ?></td>
-            </tr>
-            <tr>
                 <td><?php echo $organization->getName(); ?></td>
             </tr>
+            <?php
+                }
+            ?>
         </tbody>
     </table>
-    <?php
-}
-?>
     <!-- <br /><br />
     <form method="post" action="index.php?action=addAccount">
         <table>
