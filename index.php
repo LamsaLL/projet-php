@@ -61,9 +61,9 @@ try {
         }
     } else {
         ?>
-        <a href="index.php?action=viewOrganizations">Liste de structures</a>
-        <a href="index.php?action=viewActivities">Liste d'activités</a>
-        <?php
+<a href="index.php?action=viewOrganizations">Liste de structures</a>
+<a href="index.php?action=viewActivities">Liste d'activités</a>
+<?php
     }
 }
 catch (Exception $ex) {
@@ -71,6 +71,6 @@ catch (Exception $ex) {
             $ex->getTraceAsString());
 }
 if (isset($error)) {
-    require(__DIR__.'/view/error.php');
+    require(__DIR__.'/View/error.php');
 }
 ?>
