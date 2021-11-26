@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-require_once(__DIR__.'/../model/managers/PDOManager.php');
+require_once(__DIR__.'/../Model/Managers/PDOManager.php');
 
 use Model\Entities\Entity;
 use Model\Managers\PDOManager;

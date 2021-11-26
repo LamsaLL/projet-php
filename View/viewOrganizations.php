@@ -17,10 +17,10 @@ foreach ($organizations as $organization) { ?>
         </thead>
         <tbody>
             <tr>
-                <td><?php echo $account->getId(); ?></td>
+                <td><?php echo $organization->getId(); ?></td>
             </tr>
             <tr>
-                <td><?php echo $account->getName(); ?></td>
+                <td><?php echo $organization->getName(); ?></td>
             </tr>
         </tbody>
     </table>

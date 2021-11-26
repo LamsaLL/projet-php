@@ -1,6 +1,6 @@
 <?php
 
-require_once('Controller/OrganizationController.php');
+require_once('./Controller/OrganizationController.php');
 
 use Controller\OrganizationController;
 
