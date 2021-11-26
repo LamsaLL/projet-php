@@ -2,7 +2,7 @@
 
 namespace Model\Managers;
 
-require_once(__DIR__ . '/../Entities/Organization.php');
+require_once(__DIR__ . '/../Entities/OrganizationActivity.php');
 require_once(__DIR__.'/../Entities/Entity.php');
 require_once('PDOManager.php');
 
