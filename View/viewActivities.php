@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="/php-lp/projet-php/projet-php/style/style.css" />
+    <link rel="stylesheet" href="style/style.css" />
 </head>
 
 <body>
