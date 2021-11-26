@@ -8,4 +8,4 @@
 /httpRequests/
 # All .pdf files
 *.pdf
-../conf/conf.php
+/conf/conf.php

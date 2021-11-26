@@ -32,7 +32,7 @@ try {
                     $error = 'Erreur : action non reconnue<br/>';
                     break;
             }
-        } elseif (stripos($_GET['action'], 'activ')) {
+        } elseif (stripos($_GET['action'], 'activit')) {
             $controler = new ActivityController();
             switch ($_GET['action']) {
                 case 'viewActivity':

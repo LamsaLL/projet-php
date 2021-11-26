@@ -13,6 +13,7 @@
         <tr>
             <th>id</th>
             <th>Nom</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,12 @@
             <tr>
                 <td><?php echo $activity->getId(); ?></td>
                 <td><?php echo $activity->getLabel(); ?></td>
+                <td>
+                    <a href="index.php?action=viewActivity&id=<?= $activity->getId()?>">Détail
+                    </a>
+                    <button>Modifier</button>
+                    <button>Supprimer</button>
+                </td>
             </tr>
         <?php
             }
