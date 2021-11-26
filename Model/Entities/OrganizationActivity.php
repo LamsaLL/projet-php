@@ -2,6 +2,8 @@
 
 namespace Model\Entities;
 
+require_once('Entity.php');
+
 class OrganizationActivity extends Entity
 {
     private int $organizationId;
@@ -17,22 +19,6 @@ class OrganizationActivity extends Entity
         parent::__construct($id);
         $this->organizationId = $organizationId;
         $this->activityId = $activityId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     /**

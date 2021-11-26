@@ -2,6 +2,8 @@
 
 namespace Model\Entities;
 
+require_once('Entity.php');
+
 class Activity extends Entity
 {
     private string $label;
@@ -14,22 +16,6 @@ class Activity extends Entity
     {
         parent::__construct($id);
         $this->label = $label;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     /**

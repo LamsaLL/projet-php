@@ -2,6 +2,8 @@
 
 namespace Model\Entities;
 
+require_once('Entity.php');
+
 class Organization extends Entity
 {
     private string $name;
@@ -9,8 +11,8 @@ class Organization extends Entity
     private string $postalCode;
     private string $city;
     private bool $isAssociation;
-    private int $donorsNumber;
-    private int $investorsNumber;
+    private ?int $donorsNumber;
+    private ?int $investorsNumber;
 
     /**
      * @param int|null $id
@@ -19,10 +21,10 @@ class Organization extends Entity
      * @param string $postalCode
      * @param string $city
      * @param bool $isAssociation
-     * @param int $donorsNumber
-     * @param int $investorsNumber
+     * @param int|null $donorsNumber
+     * @param int|null $investorsNumber
      */
-    public function __construct(?int $id, string $name, string $street, string $postalCode, string $city, bool $isAssociation, int $donorsNumber, int $investorsNumber)
+    public function __construct(?int $id, string $name, string $street, string $postalCode, string $city, bool $isAssociation, ?int $donorsNumber, ?int $investorsNumber)
     {
         parent::__construct($id);
         $this->name = $name;
@@ -32,22 +34,6 @@ class Organization extends Entity
         $this->isAssociation = $isAssociation;
         $this->donorsNumber = $donorsNumber;
         $this->investorsNumber = $investorsNumber;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     /**
@@ -117,7 +103,7 @@ class Organization extends Entity
     /**
      * @return bool
      */
-    public function getIsAssociation(): bool
+    public function isAssociation(): bool
     {
         return $this->isAssociation;
     }
