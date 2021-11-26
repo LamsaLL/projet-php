@@ -10,7 +10,7 @@ class Organization extends Entity
     private string $street;
     private string $postalCode;
     private string $city;
-    private bool $isAssociation;
+    private int $isAssociation;
     private ?int $donorsNumber;
     private ?int $investorsNumber;
 
@@ -20,11 +20,11 @@ class Organization extends Entity
      * @param string $street
      * @param string $postalCode
      * @param string $city
-     * @param bool $isAssociation
+     * @param int $isAssociation
      * @param int|null $donorsNumber
      * @param int|null $investorsNumber
      */
-    public function __construct(?int $id, string $name, string $street, string $postalCode, string $city, bool $isAssociation, ?int $donorsNumber, ?int $investorsNumber)
+    public function __construct(?int $id, string $name, string $street, string $postalCode, string $city, int $isAssociation, ?int $donorsNumber, ?int $investorsNumber)
     {
         parent::__construct($id);
         $this->name = $name;
@@ -101,17 +101,17 @@ class Organization extends Entity
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isAssociation(): bool
+    public function getIsAssociation(): int
     {
         return $this->isAssociation;
     }
 
     /**
-     * @param bool $isAssociation
+     * @param int $isAssociation
      */
-    public function setIsAssociation(bool $isAssociation): void
+    public function setIsAssociation(int $isAssociation): void
     {
         $this->isAssociation = $isAssociation;
     }
@@ -119,7 +119,7 @@ class Organization extends Entity
     /**
      * @return int
      */
-    public function getDonorsNumber(): int
+    public function getDonorsNumber(): ?int
     {
         return $this->donorsNumber;
     }
@@ -135,7 +135,7 @@ class Organization extends Entity
     /**
      * @return int
      */
-    public function getInvestorsNumber(): int
+    public function getInvestorsNumber(): ?int
     {
         return $this->investorsNumber;
     }
