@@ -13,6 +13,10 @@ use PDOStatement;
 
 class OrganizationActivityManager extends PDOManager
 {
+    /**
+     * @param int $id
+     * @return Entity|null
+     */
     public function findById(int $id): ?Entity
     {
         //Préparation du PDOStatement
@@ -26,12 +30,28 @@ class OrganizationActivityManager extends PDOManager
         return new OrganizationActivity($organizationActivity['ID'],$organizationActivity['ID_STRUCTURE'],$organizationActivity['ID_SECTEUR']);
     }
 
+    /**
+     * @param int $id
+     * @return PDOStatement
+     */
+    public function delete(int $id): PDOStatement
+    {
+        // TODO: Implement delete() method.
+    }
+
+    /**
+     * @return PDOStatement
+     */
     public function find(): PDOStatement
     {
         $stmt = $this->executePrepare("select * from secteur_structures",[]);
         return $stmt;
     }
 
+    /**
+     * @param int $pdoFecthMode
+     * @return array
+     */
     public function findAll(int $pdoFecthMode): array
     {
         $stmt = $this->find();
@@ -49,6 +69,10 @@ class OrganizationActivityManager extends PDOManager
         return $organizationsActivityEntities;
     }
 
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
     public function insert(Entity $e): PDOStatement
     {
         $req = "insert into secteurs_structures(id, idStructure, idSecteur) values (:id, :idStructure, :idSecteur)";

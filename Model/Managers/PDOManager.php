@@ -13,7 +13,25 @@ abstract class PDOManager
 {
     /*private string $host, $db, $encoding, $user, $pass;
     private int $pdoErrorMode;*/
+    /**
+     * @var mixed
+     */
+    /**
+     * @var mixed
+     */
+    /**
+     * @var mixed
+     */
+    /**
+     * @var mixed
+     */
+    /**
+     * @var mixed
+     */
     private $host, $db, $encoding, $user, $pass;
+    /**
+     * @var mixed
+     */
     private $pdoErrorMode;
 
     /**
@@ -125,6 +143,9 @@ abstract class PDOManager
         $this->pdoErrorMode = $pdoErrorMode;
     }
 
+    /**
+     * @return PDO
+     */
     protected function dbConnect() : PDO
     {
         $conn = new PDO("mysql:host=$this->host;dbname=$this->db;charset=$this->encoding",
@@ -133,6 +154,11 @@ abstract class PDOManager
         return $conn;
     }
 
+    /**
+     * @param string $req
+     * @param array $params
+     * @return PDOStatement
+     */
     protected function executePrepare(string $req, array $params) : PDOStatement {
         $conn = null;
         try {
@@ -151,8 +177,32 @@ abstract class PDOManager
         }
     }
 
+    /**
+     * @param int $id
+     * @return Entity|null
+     */
     public abstract function findById(int $id) : ?Entity;
+
+    /**
+     * @return PDOStatement
+     */
     public abstract function find() : PDOStatement;
+
+    /**
+     * @param int $pdoFecthMode
+     * @return array
+     */
     public abstract function findAll(int $pdoFecthMode) : array;
+
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
     public abstract function insert(Entity $e) : PDOStatement;
+
+    /**
+     * @param int $id
+     * @return PDOStatement
+     */
+    public abstract function delete(int $id) : PDOStatement;
 }

@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <button>Ajouter une nouvelle activité</button>
     <table>
         <thead>
         <tr>
@@ -24,10 +25,9 @@
                 <td><?php echo $activity->getId(); ?></td>
                 <td><?php echo $activity->getLabel(); ?></td>
                 <td>
-                    <a href="index.php?action=viewActivity&id=<?= $activity->getId()?>">Détail
-                    </a>
+                    <a href="index.php?action=viewActivity&id=<?= $activity->getId()?>">Détail</a>
                     <button>Modifier</button>
-                    <button>Supprimer</button>
+                    <a href="index.php?action=deleteActivity&id=<?= $activity->getId()?>"><button>Supprimer</button></a>
                 </td>
             </tr>
         <?php

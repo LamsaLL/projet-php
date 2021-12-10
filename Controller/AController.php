@@ -61,4 +61,12 @@ abstract class AController
     {
         $this->getManager()->insert($e);
     }
+
+    /**
+     * @return PDOStatement
+     */
+    public function delete(int $id): PDOStatement
+    {
+        return($this->getManager()->delete($id));
+    }
 }

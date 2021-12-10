@@ -37,6 +37,20 @@ class ActivityController extends AController
         }
     }
 
+    public function deleteActivity($id) : void
+    {
+        $title = "Liste d'activités";
+        $resDelete = $this->delete($id);
+
+        if ($resDelete->rowCount() > 0) {
+            header('Location: index.php?action=viewActivities');
+        }
+        else {
+            $error = "Error de suppression : Activité non trouvée";
+            require(__DIR__ . '/../View/error.php');
+        }
+    }
+
     public function addActivity() : void
     {
         // $isadmin = isset($_POST['isadmin']) ? 1 : 0;
