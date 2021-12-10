@@ -6,9 +6,35 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" href="style/style.css" />
 </head>
+<!-- 
+$_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], 
+        $_POST['isAsso'], $_POST['donatorsNumber'], $_POST['investitorsNumber'] -->
 
 <body>
-    <button>Ajouter une nouvelle structure</button>
+    <form method="post" action="index.php?action=addOrganization">
+        <label for="name">Nom</label>
+        <input required type="text" name="name">
+
+        <label for="street">Rue</label>
+        <input required type="text" name="street">
+
+        <label for="postalCode">Code postale</label>
+        <input required type="text" name="postalCode">
+
+        <label for="city">Ville</label>
+        <input required type="text" name="city">
+
+        <label for="isAsso">Est asso</label>
+        <input type="checkbox" name="isAsso">
+
+        <label for="donatorsNumber">Nombre de donnateurs</label>
+        <input type="number" min="0" name="donatorsNumber">
+
+        <label for="investitorsNumber">Nombre d'investisseurs</label>
+        <input type="number" min="0" name="investitorsNumber">
+
+        <input type="submit" name="add" value="Ajouter">
+    </form>
     <table>
         <thead>
             <tr>

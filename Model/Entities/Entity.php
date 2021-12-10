@@ -6,7 +6,7 @@ require_once('Entity.php');
 
 abstract class Entity
 {
-    private int $id;
+    private ?int $id;
 
     /**
      * @param int|null $id

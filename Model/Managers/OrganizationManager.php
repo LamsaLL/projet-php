@@ -47,7 +47,7 @@ class OrganizationManager extends PDOManager
     {
         $req = "insert into structure(id, nom, rue, cp, ville, estasso, nb_donateurs, nb_actionnaires) values (:id, :nom, :rue, 
         :cp, :ville, :estasso, :nb_donateurs, :nb_actionnaires)";
-        $params = array('id' => $e->getId(), 'rue' => $e->getStreet(), 'cp' => $e->getPostalCode(), 'ville' => $e->getCity(),
+        $params = array('id' => $e->getId(), 'nom' => $e->getName(),'rue' => $e->getStreet(), 'cp' => $e->getPostalCode(), 'ville' => $e->getCity(),
         'estasso' => $e->getIsAssociation(), 'nb_donateurs' => $e->getDonorsNumber(), 'nb_actionnaires' => $e->getInvestorsNumber());
         $res=$this->executePrepare($req,$params);
         return $res;

@@ -21,13 +21,13 @@ try {
                 case 'viewOrganizations':
                     $organizations = $controler->viewOrganizations();
                     break;
-                // case 'addAccount':
-                //     if (isset($_POST['login'], $_POST['name'], $_POST['surname'], $_POST['email'], $_POST['pass'])) {
-                //         $controler->addOrganization();
-                //     } else {
-                //         $error = 'Erreur de paramètres<br/>';
-                //     }
-                //     break;
+                case 'addOrganization':
+                    if (isset($_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], $_POST['donatorsNumber'], $_POST['investitorsNumber'])) {
+                        $controler->addOrganization();
+                    } else {
+                        $error = 'Erreur de paramètres<br/>';
+                    }
+                    break;
                 default :
                     $error = 'Erreur : action non reconnue<br/>';
                     break;
