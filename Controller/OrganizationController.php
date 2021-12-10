@@ -39,22 +39,22 @@ class OrganizationController extends AController
 
     public function addOrganization() : void
     {
-        // $isadmin = isset($_POST['isadmin']) ? 1 : 0;
-        if (empty($_POST['donatorsNumber'])){ 
-            $donatorsNumber=null;
+        $isAsso = isset($_POST["isAsso"] ) ? 1 : 0;
+
+        if (empty($_POST['donorsNumber'])){ 
+            $donorsNumber=null;
         }else{
-            $donatorsNumber=(int)$_POST['donatorsNumber'];
+            $donorsNumber=(int)$_POST['donorsNumber'];
         }
-        if (empty($_POST['investitorsNumber'])){ 
-            $investitorsNumber=null;
+        if (empty($_POST['investorsNumber'])){ 
+            $investorsNumber=null;
         }else{
-            $investitorsNumber=(int)$_POST['investitorsNumber'];
+            $investorsNumber=(int)$_POST['investorsNumber'];
         }
         
         $organization = new Organization(null, $_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], 
-        (int)$_POST['isAsso'], $donatorsNumber, $investitorsNumber );
+        $isAsso, $donorsNumber, $investorsNumber);
         
-        var_dump($organization);
         
         $this->insert($organization);
         header('Location: index.php?action=viewOrganizations');

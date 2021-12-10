@@ -8,7 +8,7 @@ class OrganizationActivity extends Entity
 {
     private int $organizationId;
     private int $activityId;
-
+    
     /**
      * @param int|null $id
      * @param int $organizationId

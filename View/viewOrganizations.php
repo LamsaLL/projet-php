@@ -6,9 +6,6 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" href="style/style.css" />
 </head>
-<!-- 
-$_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], 
-        $_POST['isAsso'], $_POST['donatorsNumber'], $_POST['investitorsNumber'] -->
 
 <body>
     <form method="post" action="index.php?action=addOrganization">
@@ -19,19 +16,19 @@ $_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'],
         <input required type="text" name="street">
 
         <label for="postalCode">Code postale</label>
-        <input required type="text" name="postalCode">
+        <input required type="text" maxlength="5" name="postalCode">
 
         <label for="city">Ville</label>
         <input required type="text" name="city">
 
         <label for="isAsso">Est asso</label>
-        <input type="checkbox" name="isAsso">
+        <input type="checkbox" name="isAsso" >
 
-        <label for="donatorsNumber">Nombre de donnateurs</label>
-        <input type="number" min="0" name="donatorsNumber">
+        <label for="donorsNumber">Nombre de donnateurs</label>
+        <input type="number" min="0" name="donorsNumber">
 
-        <label for="investitorsNumber">Nombre d'investisseurs</label>
-        <input type="number" min="0" name="investitorsNumber">
+        <label for="investorsNumber">Nombre d'investisseurs</label>
+        <input type="number" min="0" name="investorsNumber">
 
         <input type="submit" name="add" value="Ajouter">
     </form>

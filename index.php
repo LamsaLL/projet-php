@@ -22,8 +22,17 @@ try {
                     $organizations = $controler->viewOrganizations();
                     break;
                 case 'addOrganization':
-                    if (isset($_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], $_POST['donatorsNumber'], $_POST['investitorsNumber'])) {
-                        $controler->addOrganization();
+                    if (isset($_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], $_POST['donorsNumber'], $_POST['investorsNumber'])) {
+                        //check if postal code is valid 
+                        if (preg_match ("/^[0-9]{5}$/", (int)$_POST['postalCode'])) {  
+                            if((empty($_POST["donorsNumber"]) && !empty($_POST["investorsNumber"])) || (!empty($_POST["donorsNumber"]) && empty($_POST["investorsNumber"]))){
+                                $controler->addOrganization();
+                            }else{
+                                $error = 'Il faut renseiger soit le nombre de donateurs, soit le nombre d\'actionnaires.';
+                            }
+                        }else{
+                            $error = 'Le code postal doit être composé de 5 chiffres numériques';
+                        }
                     } else {
                         $error = 'Erreur de paramètres<br/>';
                     }
