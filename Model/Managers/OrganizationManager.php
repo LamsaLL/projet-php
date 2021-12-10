@@ -12,6 +12,11 @@ use PDOStatement;
 
 class OrganizationManager extends PDOManager
 {
+
+    /**
+     * @param int $id
+     * @return Entity|null
+     */
     public function findById(int $id): ?Entity
     {
         $stmt = $this->executePrepare("select * from structure where id=:id", [ 'id' => $id]);
@@ -20,14 +25,21 @@ class OrganizationManager extends PDOManager
         return new Organization($organization['ID'],$organization['NOM'],$organization['RUE'],$organization['CP'],
             $organization['VILLE'], $organization['ESTASSO'],$organization['NB_DONATEURS'], $organization['NB_ACTIONNAIRES']);
     }
-    
 
+
+    /**
+     * @return PDOStatement
+     */
     public function find(): PDOStatement
     {
         $stmt=$this->executePrepare("select * from structure",[]);
         return $stmt;
     }
 
+    /**
+     * @param int $pdoFecthMode
+     * @return array
+     */
     public function findAll(int $pdoFecthMode): array
     {
         $stmt=$this->find();
@@ -43,6 +55,10 @@ class OrganizationManager extends PDOManager
 
     }
 
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
     public function insert(Entity $e): PDOStatement
     {
         $req = "insert into structure(id, nom, rue, cp, ville, estasso, nb_donateurs, nb_actionnaires) values (:id, :nom, :rue, 
@@ -50,6 +66,18 @@ class OrganizationManager extends PDOManager
         $params = array('id' => $e->getId(), 'rue' => $e->getStreet(), 'cp' => $e->getPostalCode(), 'ville' => $e->getCity(),
         'estasso' => $e->getIsAssociation(), 'nb_donateurs' => $e->getDonorsNumber(), 'nb_actionnaires' => $e->getInvestorsNumber());
         $res=$this->executePrepare($req,$params);
+        return $res;
+    }
+
+    /**
+     * @param int $id
+     * @return PDOStatement
+     */
+    public function delete(int $id): PDOStatement
+    {
+        $req = "delete from structure where id=:id";
+        $params = array('id' => $id);
+        $res = $this->executePrepare($req,$params);
         return $res;
     }
 

@@ -45,13 +45,13 @@ try {
                 case 'viewActivities':
                     $organizations = $controler->viewActivities();
                     break;
-//                case 'addActivity':
-//                    if (isset($_POST['name'])) {
-//                        $controler->addAuth();
-//                    } else {
-//                        $error = 'Erreur de paramètres<br/>';
-//                    }
-//                    break;
+                case 'deleteActivity':
+                    if (isset($_GET['id'])) {
+                        $controler->deleteActivity($_GET['id']);
+                    } else {
+                        $error = 'Erreur de paramètres<br/>';
+                    }
+                    break;
                 default :
                     $error = 'Erreur : action non reconnue<br/>';
                     break;
