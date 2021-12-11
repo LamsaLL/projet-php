@@ -25,10 +25,10 @@
         <input type="checkbox" name="isAsso" >
 
         <label for="donorsNumber">Nombre de donnateurs</label>
-        <input type="number" min="0" name="donorsNumber">
+        <input type="number" min="1" name="donorsNumber">
 
         <label for="investorsNumber">Nombre d'investisseurs</label>
-        <input type="number" min="0" name="investorsNumber">
+        <input type="number" min="1" name="investorsNumber">
 
         <input type="submit" name="add" value="Ajouter">
     </form>

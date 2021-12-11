@@ -53,12 +53,10 @@ class ActivityController extends AController
 
     public function addActivity() : void
     {
-        // $isadmin = isset($_POST['isadmin']) ? 1 : 0;
         $activity = new Activity(null, $_POST['label']);
         $this->insert($activity);
         header('Location: index.php?action=viewActivities');
     }
-    // checkIfLabelExists($label)
     public function checkIfLabelExists($label) : bool
     {
         $activities = $this->findAll();

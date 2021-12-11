@@ -9,7 +9,6 @@
 <body>
     <?php
 
-//var_dump($organization);
 if ($organization) { ?>
     Id : <?= $organization->getId() ?><br />
     Nom : <?= $organization->getName() ?><br />

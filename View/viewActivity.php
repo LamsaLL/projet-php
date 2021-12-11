@@ -9,7 +9,6 @@
 <body>
 <?php
 
-//var_dump($activity);
 if ($activity) { ?>
     Id : <?= $activity->getId() ?><br />
     Nom : <?= $activity->getLabel() ?><br />

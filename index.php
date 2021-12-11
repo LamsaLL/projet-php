@@ -25,10 +25,20 @@ try {
                     if (isset($_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], $_POST['donorsNumber'], $_POST['investorsNumber'])) {
                         //check if postal code is valid 
                         if (preg_match ("/^[0-9]{5}$/", (int)$_POST['postalCode'])) {  
-                            if((empty($_POST["donorsNumber"]) && !empty($_POST["investorsNumber"])) || (!empty($_POST["donorsNumber"]) && empty($_POST["investorsNumber"]))){
-                                $controler->addOrganization();
-                            }else{
-                                $error = 'Il faut renseiger soit le nombre de donateurs, soit le nombre d\'actionnaires.';
+                            //if isAsso is empty donorsNumber must be empty and investorsNumber must be not empty 
+                            //else if isAsso is not empty donorsNumber must be not empty and investorsNumber must be empty
+                            if(empty($_POST["isAsso"])){
+                                if(empty($_POST["donorsNumber"]) && !empty($_POST["investorsNumber"])){
+                                    $controler->addOrganization();
+                                }else{
+                                    $error = 'Il faut renseinger le nombre d\'investisseurs pour une entreprise.';
+                                }
+                            }else{  
+                                if(!empty($_POST["donorsNumber"]) && empty($_POST["investorsNumber"])){
+                                    $controler->addOrganization();
+                                }else{
+                                    $error = 'Il faut renseigner le nombre de donnateurs pour une association.';
+                                }
                             }
                         }else{
                             $error = 'Le code postal doit être composé de 5 chiffres numériques';
