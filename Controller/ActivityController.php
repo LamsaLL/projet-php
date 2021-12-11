@@ -58,4 +58,15 @@ class ActivityController extends AController
         $this->insert($activity);
         header('Location: index.php?action=viewActivities');
     }
+    // checkIfLabelExists($label)
+    public function checkIfLabelExists($label) : bool
+    {
+        $activities = $this->findAll();
+        foreach ($activities as $activity) {
+            if ($activity->getLabel() == $label) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

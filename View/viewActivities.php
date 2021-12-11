@@ -8,7 +8,12 @@
 </head>
 
 <body>
-    <button>Ajouter une nouvelle activité</button>
+    <form method="post" action="index.php?action=addActivity">
+        <label for="label">Nom</label>
+        <input required type="text" name="label">
+
+        <input type="submit" name="add" value="Ajouter">
+    </form>
     <table>
         <thead>
         <tr>

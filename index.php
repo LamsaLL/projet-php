@@ -54,6 +54,18 @@ try {
                 case 'viewActivities':
                     $organizations = $controler->viewActivities();
                     break;
+                case 'addActivity':
+                    if (isset($_POST['label'])) {
+                        //check if label is unique
+                        if(!$controler->checkIfLabelExists($_POST['label'])){
+                            $controler->addActivity();
+                        }else{
+                            $error = 'Ce secteur existe déjà';
+                        }
+                    } else {
+                        $error = 'Erreur de paramètres<br/>';
+                    }
+                    break;
                 case 'deleteActivity':
                     if (isset($_GET['id'])) {
                         $controler->deleteActivity($_GET['id']);
