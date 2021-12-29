@@ -63,7 +63,7 @@
                     <a href="index.php?action=viewOrganization&id=<?= $organization->getId()?>">Détail
                     </a>
                     <button>Modifier</button>
-                    <button>Supprimer</button>
+                    <a href="index.php?action=deleteOrganization&id=<?= $organization->getId()?>"><button>Supprimer</button></a>
                 </td>
 
             </tr>

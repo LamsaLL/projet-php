@@ -75,8 +75,13 @@ class OrganizationManager extends PDOManager
      */
     public function delete(int $id): PDOStatement
     {
+        $req = "delete from secteurs_structures where ID_STRUCTURE = :id";
+        $params = array('id' => $id);
+        $this->executePrepare($req,$params);
+
         $req = "delete from structure where id=:id";
         $params = array('id' => $id);
+
         $res = $this->executePrepare($req,$params);
         return $res;
     }

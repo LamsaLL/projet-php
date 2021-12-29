@@ -59,4 +59,15 @@ class OrganizationController extends AController
         $this->insert($organization);
         header('Location: index.php?action=viewOrganizations');
     }
+
+    public function deleteOrganization($id){
+        $resDelete = $this->delete($id);
+
+        if ($resDelete->rowCount() > 0) {
+            header('Location: index.php?action=viewOrganizations');
+        } else {
+            $error = "Error de suppression : Structure non trouvée";
+            require(__DIR__ . '/../View/error.php');
+        }
+    }
 }

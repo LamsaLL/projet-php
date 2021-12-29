@@ -44,8 +44,7 @@ class ActivityController extends AController
 
         if ($resDelete->rowCount() > 0) {
             header('Location: index.php?action=viewActivities');
-        }
-        else {
+        } else {
             $error = "Error de suppression : Activité non trouvée";
             require(__DIR__ . '/../View/error.php');
         }

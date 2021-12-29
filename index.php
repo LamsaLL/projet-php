@@ -47,6 +47,13 @@ try {
                         $error = 'Erreur de paramètres<br/>';
                     }
                     break;
+                case 'deleteOrganization':
+                    if (isset($_GET['id'])) {
+                        $controler->deleteOrganization($_GET['id']);
+                    } else {
+                        $error = 'Erreur de paramètres<br/>';
+                    }
+                    break;
                 default :
                     $error = 'Erreur : action non reconnue<br/>';
                     break;
