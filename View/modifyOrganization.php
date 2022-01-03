@@ -24,7 +24,7 @@
         <input required type="text" name="city" value="<?=$organization->getCity()?>"></br>
 
         <label for="isAsso">Est asso</label>
-        <input type="checkbox" name="isAsso" value="<?=$organization->getIsAssociation()?>" <?php if($organization->getIsAssociation() == 1){echo "checked";} ?>></br>
+        <input type="checkbox" name="isAsso" <?php if($organization->getIsAssociation() == 1){echo "checked";} ?>></br>
 
         <label for="donorsNumber">Nombre de donnateurs</label>
         <input type="number" min="1" name="donorsNumber" value="<?=$organization->getDonorsNumber()?>"></br>
