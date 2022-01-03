@@ -205,4 +205,10 @@ abstract class PDOManager
      * @return PDOStatement
      */
     public abstract function delete(int $id) : PDOStatement;
+
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
+    public abstract function update(Entity $e) : PDOStatement;
 }

@@ -60,9 +60,8 @@
                 <td><?php echo $organization->getDonorsNumber(); ?></td>
                 <td><?php echo $organization->getInvestorsNumber(); ?></td>
                 <td>
-                    <a href="index.php?action=viewOrganization&id=<?= $organization->getId()?>">Détail
-                    </a>
-                    <button>Modifier</button>
+                    <a href="index.php?action=viewOrganization&id=<?= $organization->getId()?>"><button>Détail</button></a>
+                    <a href="index.php?action=modifyOrganization&id=<?= $organization->getId()?>"><button>Modifier</button></a>
                     <a href="index.php?action=deleteOrganization&id=<?= $organization->getId()?>"><button>Supprimer</button></a>
                 </td>
 

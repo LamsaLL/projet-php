@@ -37,6 +37,18 @@ class OrganizationController extends AController
         }
     }
 
+    public function modifyOrganization($id) : void
+    {
+        $title = "Modifier Structure";
+        $organization = $this->findById($id);
+        if($organization != null){
+            require(__DIR__ . '/../View/modifyOrganization.php');
+        }else{
+            $error = "Error de modification : Structure non trouvée";
+            require(__DIR__ . '/../View/error.php');
+        }
+    }
+
     public function addOrganization() : void
     {
         $isAsso = isset($_POST["isAsso"] ) ? 1 : 0;
@@ -54,9 +66,16 @@ class OrganizationController extends AController
         
         $organization = new Organization(null, $_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], 
         $isAsso, $donorsNumber, $investorsNumber);
-        
-        
-        $this->insert($organization);
+
+
+        //Lors qu'il s'agit d'un "Modifier" on utilise update -> sinon, insert"
+        if(isset($_POST["editOrganization"] )){
+            $organization->setId($_POST["editOrganization"]);
+            $this->update($organization);
+        }else{
+            $this->insert($organization);
+        }
+
         header('Location: index.php?action=viewOrganizations');
     }
 

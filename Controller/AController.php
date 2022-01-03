@@ -69,4 +69,13 @@ abstract class AController
     {
         return($this->getManager()->delete($id));
     }
+
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
+    public function update(Entity $e): PDOStatement
+    {
+        return($this->getManager()->update($e));
+    }
 }

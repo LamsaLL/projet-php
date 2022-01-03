@@ -54,6 +54,13 @@ try {
                         $error = 'Erreur de paramètres<br/>';
                     }
                     break;
+                case 'modifyOrganization':
+                    if (isset($_GET['id'])) {
+                        $controler->modifyOrganization($_GET['id']);
+                    } else {
+                        $error = 'Erreur de paramètres<br/>';
+                    }
+                    break;
                 default :
                     $error = 'Erreur : action non reconnue<br/>';
                     break;
@@ -86,6 +93,13 @@ try {
                 case 'deleteActivity':
                     if (isset($_GET['id'])) {
                         $controler->deleteActivity($_GET['id']);
+                    } else {
+                        $error = 'Erreur de paramètres<br/>';
+                    }
+                    break;
+                case 'modifyActivity':
+                    if (isset($_GET['id'])) {
+                        $controler->modifyActivity($_GET['id']);
                     } else {
                         $error = 'Erreur de paramètres<br/>';
                     }

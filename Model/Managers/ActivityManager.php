@@ -10,6 +10,9 @@ use Model\Entities\Activity;
 use Model\Entities\Entity;
 use PDOStatement;
 
+/**
+ *
+ */
 class ActivityManager extends PDOManager
 {
     /**
@@ -83,4 +86,19 @@ class ActivityManager extends PDOManager
         $res = $this->executePrepare($req,$params);
         return $res;
     }
+
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
+    public function update(Entity $e): PDOStatement
+    {
+        $req = "update secteur set libelle = :libelle where id = :id";
+        $params = array('libelle' => $e->getLabel(), 'id' => $e->getId());
+
+        $res = $this->executePrepare($req,$params);
+        return $res;
+    }
+
+
 }

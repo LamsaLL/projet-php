@@ -50,20 +50,41 @@ class ActivityController extends AController
         }
     }
 
+    public function modifyActivity($id) : void
+    {
+        $title = "Modifier Activité";
+        $activity = $this->findById($id);
+        if($activity != null){
+            require(__DIR__ . '/../View/modifyActivity.php');
+        }else{
+            $error = "Error de modification : Activité non trouvée";
+            require(__DIR__ . '/../View/error.php');
+        }
+    }
+
     public function addActivity() : void
     {
         $activity = new Activity(null, $_POST['label']);
-        $this->insert($activity);
+
+        //Lors qu'il s'agit d'un "Modifier" on utilise update -> sinon, insert"
+        if(isset($_POST["editActivity"] )){
+            $activity->setId($_POST["editActivity"]);
+            $this->update($activity);
+        }else{
+            $this->insert($activity);
+        }
+
         header('Location: index.php?action=viewActivities');
     }
     public function checkIfLabelExists($label) : bool
     {
         $activities = $this->findAll();
+        $exists = false;
         foreach ($activities as $activity) {
             if ($activity->getLabel() == $label) {
-                return true;
+                $exists = true;
             }
         }
-        return false;
+        return $exists;
     }
 }

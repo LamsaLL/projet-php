@@ -86,4 +86,19 @@ class OrganizationManager extends PDOManager
         return $res;
     }
 
+
+    /**
+     * @param Entity $e
+     * @return PDOStatement
+     */
+    public function update(Entity $e): PDOStatement
+    {
+        $req = "update structure set nom = :nom, rue = :rue, cp = :cp, ville = :ville, estasso = :estasso, nb_donateurs = :nb_donateurs, nb_actionnaires = :nb_actionnaires where id=:id";
+        $params = array('nom' => $e->getName(),'rue' => $e->getStreet(),'cp' => $e->getPostalCode(),'ville' => $e->getCity(),
+            'estasso' => $e->getIsAssociation(),'nb_donateurs' => $e->getDonorsNumber(),'nb_actionnaires' => $e->getInvestorsNumber(), 'id' => $e->getId());
+
+        $res = $this->executePrepare($req,$params);
+        return $res;
+    }
+
 }
