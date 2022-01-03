@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once('./Controller/OrganizationController.php');
 require_once('./Controller/ActivityController.php');
@@ -23,6 +24,14 @@ try {
                     break;
                 case 'addOrganization':
                     if (isset($_POST['name'], $_POST['street'], $_POST['postalCode'], $_POST['city'], $_POST['donorsNumber'], $_POST['investorsNumber'])) {
+                        $_SESSION['nameSession'] = $_POST['name'];
+                        $_SESSION['streetSession'] = $_POST['street'];
+                        $_SESSION['postalCodeSession'] = $_POST['postalCode'];
+                        $_SESSION['citySession'] = $_POST['city'];
+                        $_SESSION['donorsNumberSession'] = $_POST['donorsNumber'];
+                        $_SESSION['investorsSession'] = $_POST['investorsNumber'];
+                        $_SESSION['isAssoSession'] = isset($_POST['isAsso']) ? 1 : 0;
+
                         //check if postal code is valid 
                         if (preg_match ("/^[0-9]{5}$/", (int)$_POST['postalCode'])) {  
                             //if isAsso is empty donorsNumber must be empty and investorsNumber must be not empty 
@@ -80,6 +89,7 @@ try {
                     break;
                 case 'addActivity':
                     if (isset($_POST['label'])) {
+                        $_SESSION['labelSession'] = $_POST['label'];
                         //check if label is unique
                         if(!$controler->checkIfLabelExists($_POST['label'])){
                             $controler->addActivity();

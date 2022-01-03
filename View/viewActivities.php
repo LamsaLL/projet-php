@@ -10,20 +10,24 @@
 <body>
     <form method="post" action="index.php?action=addActivity">
         <label for="label">Nom</label>
-        <input required type="text" name="label" value="">
+        <input required type="text" name="label" value=<?php 
+            if (isset($_SESSION['labelSession'])) {
+                echo htmlspecialchars($_SESSION['labelSession']);
+            }
+        ?>>
 
         <input type="submit" name="add" value="Ajouter">
     </form>
     <table>
         <thead>
-        <tr>
-            <th>id</th>
-            <th>Nom</th>
-            <th>Actions</th>
-        </tr>
+            <tr>
+                <th>id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
             foreach ($activities as $activity) {
         ?>
             <tr>
@@ -35,11 +39,12 @@
                     <a href="index.php?action=deleteActivity&id=<?= $activity->getId()?>"><button>Supprimer</button></a>
                 </td>
             </tr>
-        <?php
+            <?php
             }
         ?>
         </tbody>
     </table>
+    <a href=".">Revenir à l'accueil</a>
 </body>
 
 </html>
